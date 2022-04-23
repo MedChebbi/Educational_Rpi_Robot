@@ -1,24 +1,27 @@
 import time
 import RPi.GPIO as GPIO
 
-
-# Shows Raspberry pi info
-GPIO.RPI_INFO
 # Setting pins board mode 
-GPIO.setmode(GPIO.BOARD)
-# or GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)  # or GPIO.setmode(GPIO.BCM)
 
 # Disable warnings
 GPIO.setwarnings(False)
 
 # Setup channels
-channel = 12
+pwm = 12
+pin1 = 23
+pin2 = 24
 
-GPIO.setup(channel, GPIO.OUT, initial=GPIO.LOW)
-p = GPIO.PWM(channel, 50) # channel=12 frequency=50Hz
+GPIO.setup(pwm, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(pin1, GPIO.OUT, initial=GPIO.LOW)
+GPIO.setup(pin2, GPIO.OUT, initial=GPIO.LOW)
+
+p = GPIO.PWM(pwm, 50) # channel=12 frequency=50Hz
 p.start(0)
 try:
     while True:
+        GPIO.output(pin1, GPIO.LOW)
+        GPIO.output(pin2, GPIO.HIGH)
         for dc in range(0, 101, 5):
             p.ChangeDutyCycle(dc)
             time.sleep(0.1)
@@ -30,4 +33,3 @@ except KeyboardInterrupt:
     p.stop()
     GPIO.cleanup()
     
-

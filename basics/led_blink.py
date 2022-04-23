@@ -2,7 +2,7 @@ import time
 import RPi.GPIO as GPIO
 
 # Shows Raspberry pi info
-GPIO.RPI_INFO
+print(GPIO.RPI_INFO)
 # Setting pins board mode 
 GPIO.setmode(GPIO.BOARD)  # or GPIO.setmode(GPIO.BCM)
 # Disable warnings

@@ -12,12 +12,12 @@ GPIO.setwarnings(False)
 
 # Setup channels
 pwmL = 12
-pinl1 = 23
-pinl2 = 24
+pinl1 = 16
+pinl2 = 18
 
-pwmR = 13
-pinr1 = 22
-pinr2 = 27
+pwmR = 33
+pinr1 = 29
+pinr2 = 31
 
 GPIO.setup(pwmL, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(pinl1, GPIO.OUT, initial=GPIO.LOW)

@@ -8,8 +8,8 @@ GPIO.setmode(GPIO.BOARD)  # or GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 # Setup channels
-pin1 = 23
-pin2 = 24
+pin1 = 16
+pin2 = 18
 
 GPIO.setup(pin1, GPIO.OUT, initial=GPIO.LOW)
 GPIO.setup(pin2, GPIO.OUT, initial=GPIO.LOW)

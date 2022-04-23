@@ -15,8 +15,10 @@ try:
     # Looping and adding delays for led blinking
     for i in range(10):
         GPIO.output(channel, GPIO.HIGH)
+        print("LED ON")
         time.sleep(1)
         GPIO.output(channel, GPIO.LOW)
+        print("LED OFF")
         time.sleep(1)
 
 finally:

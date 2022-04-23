@@ -1,27 +1,27 @@
 import time
 import RPi.GPIO as GPIO
 
-
 # Setting pins board mode 
-GPIO.setmode(GPIO.BOARD)
-# or GPIO.setmode(GPIO.BCM)
-
+GPIO.setmode(GPIO.BOARD) # or GPIO.setmode(GPIO.BCM)
 # Disable warnings
 GPIO.setwarnings(False)
 
 # Setup channels
 channel = 12
 GPIO.setup(channel, GPIO.OUT, initial=GPIO.LOW)
-
-n = 10
-
+p = GPIO.PWM(channel, 50) # channel=12 frequency=50Hz
+p.start(0)
 try:
-    # Looping and adding delays for led blinking
-    for i in range(n):
-        GPIO.output(channel, GPIO.HIGH)
-        time.sleep(1)
-        GPIO.output(channel, GPIO.LOW)
-        time.sleep(1)
+    while True:
+        for dc in range(0, 101, 5):
+            p.ChangeDutyCycle(dc)
+            time.sleep(0.1)
+        for dc in range(100, -1, -5):
+            p.ChangeDutyCycle(dc)
+            time.sleep(0.1)
 
-finally:
+except KeyboardInterrupt:
+    p.stop()
     GPIO.cleanup()
+    
+

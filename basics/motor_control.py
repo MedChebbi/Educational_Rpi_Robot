@@ -17,10 +17,10 @@ GPIO.setup(pin2, GPIO.OUT, initial=GPIO.LOW)
 try:
     GPIO.output(pin1, GPIO.LOW)
     GPIO.output(pin2, GPIO.HIGH)
-    time.sleep(1)
+    time.sleep(5)
     GPIO.output(pin1, GPIO.HIGH)
     GPIO.output(pin2, GPIO.LOW)
-    time.sleep(1)
+    time.sleep(5)
 
 finally:
     GPIO.cleanup()

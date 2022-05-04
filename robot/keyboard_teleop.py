@@ -37,11 +37,11 @@ def rotRight():
 
 def rotLeft():
     # Right motor control
-    pr.start()
+    pr.start(70)
     GPIO.output(pinr1,GPIO.LOW)
     GPIO.output(pinr2,GPIO.HIGH)
     # Left motor control
-    pl.start()
+    pl.start(70)
     GPIO.output(pinl1,GPIO.HIGH)
     GPIO.output(pinl2,GPIO.LOW)
 
@@ -64,7 +64,7 @@ def main():
         while True:
             char= screen.getch()
             if char== ord('q'):
-                break
+                exit(0)
             if char== ord('S'):
                 os.system("sudo shutdown now")
             elif char== curses.KEY_DOWN:
@@ -92,13 +92,13 @@ if __name__ == "__main__":
     GPIO.setwarnings(False)
 
     # Setup channels
-    pwmL = 12
-    pinl1 = 16
-    pinl2 = 18
+    pwmL = 15
+    pinl1 = 13
+    pinl2 = 11
 
-    pwmR = 33
-    pinr1 = 29
-    pinr2 = 31
+    pwmR = 22
+    pinr1 = 16
+    pinr2 = 18
 
     GPIO.setup(pwmL, GPIO.OUT, initial=GPIO.LOW)
     GPIO.setup(pinl1, GPIO.OUT, initial=GPIO.LOW)

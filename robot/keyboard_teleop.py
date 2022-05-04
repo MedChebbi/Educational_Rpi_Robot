@@ -4,31 +4,6 @@ import curses
 import RPi.GPIO as GPIO
 
 
-# Setting pins board mode 
-GPIO.setmode(GPIO.BOARD)  # or GPIO.setmode(GPIO.BCM)
-
-# Disable warnings
-GPIO.setwarnings(False)
-
-# Setup channels
-pwmL = 12
-pinl1 = 16
-pinl2 = 18
-
-pwmR = 33
-pinr1 = 29
-pinr2 = 31
-
-GPIO.setup(pwmL, GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(pinl1, GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(pinl2, GPIO.OUT, initial=GPIO.LOW)
-
-GPIO.setup(pwmR, GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(pinr1, GPIO.OUT, initial=GPIO.LOW)
-GPIO.setup(pinr2, GPIO.OUT, initial=GPIO.LOW)
-
-pr = GPIO.PWM(pwmR, 50) # frequency=50Hz
-pl = GPIO.PWM(pwmL, 50) # frequency=50Hz
 
 def forward(speed = 100):
     # Right motor control
@@ -107,3 +82,32 @@ def main():
         curses.nocbreak(); screen.keypad(0); curses.echo()
         curses.endwin()
         GPIO.cleanup()
+
+
+if __name__ == "__main__":
+    # Setting pins board mode 
+    GPIO.setmode(GPIO.BOARD)  # or GPIO.setmode(GPIO.BCM)
+
+    # Disable warnings
+    GPIO.setwarnings(False)
+
+    # Setup channels
+    pwmL = 12
+    pinl1 = 16
+    pinl2 = 18
+
+    pwmR = 33
+    pinr1 = 29
+    pinr2 = 31
+
+    GPIO.setup(pwmL, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(pinl1, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(pinl2, GPIO.OUT, initial=GPIO.LOW)
+
+    GPIO.setup(pwmR, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(pinr1, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(pinr2, GPIO.OUT, initial=GPIO.LOW)
+
+    pr = GPIO.PWM(pwmR, 50) # frequency=50Hz
+    pl = GPIO.PWM(pwmL, 50) # frequency=50Hz
+    main()

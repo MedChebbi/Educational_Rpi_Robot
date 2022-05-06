@@ -10,9 +10,10 @@ greenBGR = np.uint8([[[0,255,0 ]]])
 hsv_green = cv2.cvtColor(greenBGR,cv2.COLOR_BGR2HSV)
 print (hsv_green)
 
-img = cv2.imread('../resources/images/colors_2.png')
+img = cv2.imread('../resources/images/green.jpg')
 imgHSV = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
-
+#Black approx range in hsv: (0, 0, 0) ~ (180, 255, 30)
+#White approx range in hsv: (0, 0, 180) ~ (180, 0, 255)
 #Green approx range in hsv: (40, 40,40) ~ (70, 255,255)
 #Red approx range in hsv: (0, 120, 30) ~ (25, 255, 255)
 #Blue approx range in hsv: (110,150,50) ~ (120,255,255)

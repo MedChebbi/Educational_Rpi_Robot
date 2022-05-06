@@ -19,17 +19,19 @@ if save_vid:
 while(vid_cap.isOpened()):
     # Capture frame-by-frame
     ret, frame = vid_cap.read()
-    #frame = cv2.cvtColor(frame,cv2.COLOR_BGR2HSV)
-    frame = cv2.resize(frame, (w, h), interpolation=cv2.INTER_AREA)
     # Display video 
     if ret:
+        #frame = cv2.cvtColor(frame,cv2.COLOR_BGR2HSV)
+        #frame = cv2.resize(frame, (w, h), interpolation=cv2.INTER_AREA)
         cv2.imshow("frame",frame)
         # Close window when you press q
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
     # Record if save_vid == True
-    if save_vid:
-        vid_writer.write(frame)
+        if save_vid:
+            vid_writer.write(frame)
+    else:
+        break
 
 if save_vid: vid_writer.release()
 # When everything done, release the video capture object

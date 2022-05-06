@@ -5,8 +5,10 @@ vid_path ='../resources/videos/video_1.mp4'
 save_path = '../resources/videos/video_test.mp4'
 save_vid = True
 
-#Create video capture instance
-vid_cap = cv2.VideoCapture(2)
+# Create video capture instance using cv2.VideoCapture()
+###
+# Write code here
+###
 #Get needed video info if we are going to record video
 if save_vid:
     fps = vid_cap.get(cv2.CAP_PROP_FPS)
@@ -21,15 +23,17 @@ while(vid_cap.isOpened()):
     ret, frame = vid_cap.read()
     # Display video 
     if ret:
-        #frame = cv2.cvtColor(frame,cv2.COLOR_BGR2HSV)
-        #frame = cv2.resize(frame, (w, h), interpolation=cv2.INTER_AREA)
-        cv2.imshow("frame",frame)
+        # Show frame using cv2.imshow()
+        ###
+        # Write code here
+        ###
         # Close window when you press q
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
-    # Record if save_vid == True
-        if save_vid:
-            vid_writer.write(frame)
+        # Record if save_vid == True using .write() method
+        ###
+        # Write code here
+        ###
     else:
         break
 

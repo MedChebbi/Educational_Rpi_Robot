@@ -3,11 +3,11 @@ import cv2
 
 vid_path ='../resources/videos/video_1.mp4'
 save_path = '../resources/videos/video_test.mp4'
-save_vid = True
+save_vid = False
 
 # Create video capture instance using cv2.VideoCapture()
 ###
-# Write code here
+vid_cap = cv2.VideoCapture(0)
 ###
 #Get needed video info if we are going to record video
 if save_vid:
@@ -23,13 +23,16 @@ while(vid_cap.isOpened()):
     ret, frame = vid_cap.read()
     # Display video 
     if ret:
+        img_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         # Show frame using cv2.imshow()
         ###
-        # Write code here
+        cv2.imshow("Image", frame)
+        cv2.imshow("Gray", img_gray)
         ###
         # Close window when you press q
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+        if cv2.waitKey(10) & 0xFF == ord('q'):
             break
+        
         # Record if save_vid == True using .write() method
         ###
         # Write code here

@@ -3,7 +3,7 @@ import cv2
 
 vid_path ='../resources/videos/video_1.mp4'
 save_path = '../resources/videos/video_test.mp4'
-save_vid = False
+save_vid = True
 
 # Create video capture instance using cv2.VideoCapture()
 ###
@@ -12,11 +12,14 @@ vid_cap = cv2.VideoCapture(0)
 #Get needed video info if we are going to record video
 if save_vid:
     fps = vid_cap.get(cv2.CAP_PROP_FPS)
+    
     w = int(vid_cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     h = int(vid_cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    print(w)
+    print(h)
     #w,  h = 1280, 720
     #Create video writer instance
-    vid_writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*'mp4v'), fps, (w, h))
+    vid_writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*'mp4v'), int(fps), (w, h))
 
 while(vid_cap.isOpened()):
     # Capture frame-by-frame
@@ -35,7 +38,8 @@ while(vid_cap.isOpened()):
         
         # Record if save_vid == True using .write() method
         ###
-        # Write code here
+        if save_vid==True: 
+            vid_writer.write(img_gray)
         ###
     else:
         break

@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 
-
 img_path = '../resources/images/image_2.jpg'
 
 #Reading image

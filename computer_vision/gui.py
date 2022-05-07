@@ -28,7 +28,7 @@ cv2.createTrackbar("Example", "Trackbars", intialTracbarValue,maxValue, nothing)
 while True:
     extractedValue = cv2.getTrackbarPos("Example", "Trackbars")
 
-    #print (extractedValue)
+    #print(extractedValue)
     cv2.imshow("img",img)
     cv2.setMouseCallback("img", click_event)
     if cv2.waitKey(1) & 0xFF == ord('q'):

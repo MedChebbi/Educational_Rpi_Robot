@@ -3,8 +3,7 @@ import cv2
 import RPi.GPIO as GPIO
 
 
-
-def forward(speed = 100):
+def forward(speed = 50):
     # Right motor control
     pr.start(speed)
     GPIO.output(pinr1,GPIO.LOW)
@@ -14,7 +13,7 @@ def forward(speed = 100):
     GPIO.output(pinl1,GPIO.LOW)
     GPIO.output(pinl2,GPIO.HIGH)
 
-def backward(speed = 100):
+def backward(speed = 50):
     # Right motor control
     pr.start(speed)
     GPIO.output(pinr1,GPIO.HIGH)
@@ -26,21 +25,21 @@ def backward(speed = 100):
 
 def rotRight():
     # Right motor control
-    pr.start(70)
+    pr.start(30)
     GPIO.output(pinr1,GPIO.HIGH)
     GPIO.output(pinr2,GPIO.LOW)
     # Left motor control
-    pl.start(70)
+    pl.start(30)
     GPIO.output(pinl1,GPIO.LOW)
     GPIO.output(pinl2,GPIO.HIGH)
 
 def rotLeft():
     # Right motor control
-    pr.start(70)
+    pr.start(30)
     GPIO.output(pinr1,GPIO.LOW)
     GPIO.output(pinr2,GPIO.HIGH)
     # Left motor control
-    pl.start(70)
+    pl.start(30)
     GPIO.output(pinl1,GPIO.HIGH)
     GPIO.output(pinl2,GPIO.LOW)
 

@@ -26,6 +26,7 @@ while(vid_cap.isOpened()):
     ret, frame = vid_cap.read()
     # Display video 
     if ret:
+        print(frame.shape)
         img_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         # Show frame using cv2.imshow()
         ###
@@ -38,6 +39,7 @@ while(vid_cap.isOpened()):
         
         # Record if save_vid == True using .write() method
         ###
+        img_gray = cv2.cvtColor(img_gray,cv2.COLOR_GRAY2BGR)
         if save_vid==True: 
             vid_writer.write(img_gray)
         ###
